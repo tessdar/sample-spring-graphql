@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Main<sample-spring-graphql>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.example.Main",
+            "projectName": "sample-spring-graphql",
+            "args": ""
+        }
+    ]
+}

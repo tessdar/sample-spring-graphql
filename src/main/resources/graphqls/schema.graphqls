@@ -1,0 +1,78 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+scalar Date
+
+type Query {
+  empList(departmentId: Int): [EmpListVo]
+  depList: [DepListVo]
+  depOne(departmentId: Int): DepListVo
+  jobList: [JobListVo]
+  jobOne(jobId: String): JobListVo
+  depChart: [DepChartVo]
+  jobChart: [JobChartVo]
+}
+
+
+type Mutation {
+  setEmp(input: [EmpSaveVo]) : Response!
+}
+
+type EmpListVo {
+  employeeId: Int!
+  firstName: String!
+  lastName: String!
+  phoneNumber: String
+  jobId: String
+  departmentId: Int
+  departmentName: String
+  managerId: Int
+  locationId: Int
+  email: String
+  hireDate: Date
+}
+
+type DepListVo {
+  departmentId: Int!
+  departmentName: String
+  managerId: Int
+  locationId: Int
+}
+
+type JobListVo {
+  jobId: String!
+  jobTitle: String
+  minSalary: Int
+  maxSalary: Int
+}
+
+type DepChartVo {
+  departmentId: Int!
+  departmentName: String
+  depCnt: Int
+}
+
+type JobChartVo {
+  jobId: String!
+  jobTitle: String
+  jobCnt: Int
+}
+
+type Response {
+  isFalse: Boolean!
+  message: String
+}
+
+input EmpSaveVo {
+  employeeId: Int!
+  firstName: String!
+  lastName: String!
+  phoneNumber: String
+  jobId: String
+  departmentId: Int
+  managerId: Int
+  email: String
+  _status: Int
+}
